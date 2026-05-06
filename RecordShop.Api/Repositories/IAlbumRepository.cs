@@ -1,0 +1,6 @@
+namespace RecordShop.Api.Repositories;
+
+internal interface IAlbumRepository
+{
+    Task<IEnumerable<Album>> GetAllAlbumsAsync();
+}
