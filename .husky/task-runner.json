@@ -1,14 +1,25 @@
 {
-   "$schema": "https://alirezanet.github.io/Husky.Net/schema.json",
-   "tasks": [
-      {
-         "name": "welcome-message-example",
-         "command": "bash",
-         "args": [ "-c", "echo Husky.Net is awesome!" ],
-         "windows": {
-            "command": "cmd",
-            "args": ["/c", "echo Husky.Net is awesome!" ]
-         }
+  "$schema": "https://alirezanet.github.io/Husky.Net/schema.json",
+  "tasks": [
+    {
+      "name": "welcome-message-example",
+      "command": "bash",
+      "args": [ "-c", "echo Husky.Net is awesome!" ],
+      "windows": {
+        "command": "cmd",
+        "args": [ "/c", "echo Husky.Net is awesome!" ]
       }
-   ]
+    },
+    {
+      "name": "commit-linter",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-Command",
+        "$msg = Get-Content ${args}; if ($msg -notmatch '^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\\(.+\\))?: .+$') { Write-Error 'Invalid commit message format'; exit 1 }"
+      ]
+    }
+  ]
 }
