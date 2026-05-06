@@ -18,7 +18,7 @@
         "-ExecutionPolicy",
         "Bypass",
         "-Command",
-        "$msg = Get-Content ${args}; if ($msg -notmatch '^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\\(.+\\))?: .+$') { Write-Error 'Invalid commit message format'; exit 1 }"
+        "$msg = Get-Content ${args}; if ($msg -notmatch '^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\\(.+\\))?: .+$') { Write-Host '❌ ERROR: Invalid commit message format.' -ForegroundColor Red; Write-Host 'Please use Conventional Commits (e.g., feat: message, fix: message).'; exit 1 }"
       ]
     }
   ]
