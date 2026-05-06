@@ -31,8 +31,15 @@ RecordShopApi/
 │   ├── workflows/             # CI/CD Automation scripts
 │   └── pull_request_template.md
 ├── RecordShop.Api/            # ASP.NET Core Web API
+│   ├── Data/                  # Entity Framework DB Context
+│   │   └── RecordShopContext.cs
 │   ├── Models/                # Domain entities and DTOs
-│   ├── Repositories/          # Data access logic
+│   │   └── Album.cs
+│   ├── Properties/            # Launch settings and profiles
+│   ├── Repositories/          # Data access logic (Interfaces & Impl)
+│   │   ├── IAlbumRepository.cs
+│   │   └── AlbumRepository.cs
+│   ├── appsettings.json       # Environment configurations
 │   ├── GlobalUsings.cs        # Centralised namespace management
 │   └── Program.cs             # API Entry point and Scalar config
 ├── RecordShop.Tests/          # XUnit Test Suite
