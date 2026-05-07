@@ -1,4 +1,4 @@
-﻿namespace RecordShop.Tests;
+﻿namespace RecordShop.Tests.Services;
 
 public class UnitTest1
 {

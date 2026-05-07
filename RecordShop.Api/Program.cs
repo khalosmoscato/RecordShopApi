@@ -6,7 +6,9 @@ builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddDbContext<RecordShopContext>(options => options.UseInMemoryDatabase("RecordShop"));
+builder.Services.AddDbContext<RecordShopContext>(options =>
+    options.UseInMemoryDatabase("RecordShop")
+);
 builder.Services.AddScoped<IAlbumRepository, AlbumRepository>();
 builder.Services.AddScoped<IAlbumService, AlbumService>();
 

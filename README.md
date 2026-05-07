@@ -28,28 +28,43 @@ This project is built using modern C# standards and automated quality assurance 
 ```text
 RecordShopApi/
 ├── .github/
-│   ├── workflows/             # CI/CD Automation scripts
+│   ├── workflows/               # CI/CD Automation scripts
+│   │   └── build-and-test.yml
 │   └── pull_request_template.md
-├── RecordShop.Api/            # ASP.NET Core Web API
-│   ├── Data/                  # Entity Framework DB Context
+├── .husky/                      # Local Git Hook configurations (Commit linting)
+├── RecordShop.Api/              # ASP.NET Core Web API (Production Code)
+│   ├── Controllers/             # Logic Handlers (Internal)
+│   │   └── AlbumsController.cs
+│   ├── Routes/                  # Endpoint Mapping (Minimal API Bridge)
+│   │   └── RouteExtensions.cs
+│   ├── Services/                # Business Logic Layer
+│   │   ├── IAlbumService.cs
+│   │   └── AlbumService.cs
+│   ├── Data/                    # Data Persistence
 │   │   └── RecordShopContext.cs
-│   ├── Models/                # Domain entities and DTOs
+│   ├── Models/                  # Entities & Data Transfer Objects
 │   │   └── Album.cs
-│   ├── Properties/            # Launch settings and profiles
-│   ├── Repositories/          # Data access logic (Interfaces & Impl)
+│   ├── Repositories/            # Data Access Logic
 │   │   ├── IAlbumRepository.cs
 │   │   └── AlbumRepository.cs
-│   ├── appsettings.json       # Environment configurations
-│   ├── GlobalUsings.cs        # Centralised namespace management
-│   └── Program.cs             # API Entry point and Scalar config
-├── RecordShop.Tests/          # XUnit Test Suite
-│   ├── GlobalUsings.cs        # Shared test namespaces (Xunit, Moq)
-│   └── ...
-├── .husky/                    # Local Git Hook configurations
-├── Directory.Build.props      # Global MSBuild settings
-├── .editorconfig              # Universal code style rules
-├── RecordShopApi.sln          # Solution file
-└── README.md
+│   ├── Properties/              # Launch Settings & Profiles
+│   │   └── launchSettings.json
+│   ├── appsettings.json         # Configurations
+│   ├── GlobalUsings.cs          # Centralised Usings
+│   ├── RecordShop.Api.csproj    # Project settings (TreatWarningsAsErrors)
+│   └── Program.cs               # Entry Point & Scalar UI Config
+├── RecordShop.Tests/            # XUnit Test Suite (QA Layer)
+│   ├── Controllers/             # Mirrored folder for Controller Tests
+│   │   └── AlbumsControllerTests.cs
+│   ├── Services/                # Mirrored folder for Service Tests
+│   │   └── AlbumServiceTests.cs
+│   ├── GlobalUsings.cs          # Shared Test Namespaces (Xunit, Moq, FluentAssertions)
+│   └── RecordShop.Tests.csproj  # Project settings & Assembly References
+├── .editorconfig                # Universal code style & formatting rules
+├── .gitignore                   # Standard .NET gitignore
+├── Directory.Build.props        # Global MSBuild properties
+├── RecordShopApi.slnx           # Solution File (Visual Studio 2026 format)
+└── README.md                    # Project documentation
 ```
 
 ## 🛠️ Getting Started
