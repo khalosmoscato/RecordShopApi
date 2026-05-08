@@ -9,4 +9,11 @@ internal class AlbumRepository(RecordShopContext context) : IAlbumRepository
     {
         return await context.Albums.ToListAsync().ConfigureAwait(false);
     }
+
+    public async Task<Album?> GetAlbumByIdAsync(int id)
+    {
+        return await context.Albums
+            .FirstOrDefaultAsync(a => a.Id == id)
+            .ConfigureAwait(false);
+    }
 }
